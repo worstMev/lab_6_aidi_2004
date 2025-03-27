@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <p> lab 6 </p>
+        
+        <form action="http://localhost:5000/update" method="POST">
+            <p>Student id: 
+                <input type="text" 
+                    name="student_id" 
+                    value= {{data.get('STUDENT_ID')}} 
+                    readonly />
+            </p>
+            <p>First name: 
+                <input type="text" 
+                    name="first_name" 
+                    value = {{data.get('FIRST_NAME')}}
+                    required />
+            </p>
+            <p>Last name: 
+                <input type="text" 
+                    name="last_name" 
+                    value = {{data.get('LAST_NAME')}}
+                    required />
+            </p>
+            <p>Date of birth: 
+                <input type="date" 
+                    name="dob" 
+                    value = {{data.get('DOB')}}
+                    required />
+            </p>
+            <p>Amount due: 
+                <input type="number" 
+                    name="amount_due" 
+                    value = {{data.get('AMOUNT_DUE')}}
+                    required />
+            </p>
+
+            <p><input type="submit" value="update" /></p>
+        </form>
+        <form action = {{ "/delete/"+data.get('STUDENT_ID') }} method='POST'>
+            <button> Delete </button>
+        </form>
+    
+    </body>
+</html>

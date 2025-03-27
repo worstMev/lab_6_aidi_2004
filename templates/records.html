@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body>
+    <h3> Students details:</h3>
+    <table border="1" cellpadding="8">
+        <tr>
+        {% for key,value in result[0].items() %}
+            <th> {{key}} </th>
+        {% endfor %}
+            <th> Action </th>
+        </tr>
+        {% for row in result %}
+            <tr>
+            {% for key, value in row.items() %}
+                <td>{{ value }}</td>
+            {% endfor %}
+                <td> 
+                    <form action={{ "/read/"+ row.get('STUDENT_ID') }} method="GET">
+                        <button> open </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="/" method = "GET">
+        <button> Create </button>
+    </form>
+</body>
+</html>

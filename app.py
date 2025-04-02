@@ -2,10 +2,15 @@ from flask import Flask, render_template, request, redirect, url_for
 import snowflake.connector
 from snowflake.connector import DictCursor
 
+private_key_file = './rsa_key.p8'
+private_key_file_pwd = 'hello'
+
 my_db_params = {
   "account" : "FUKSKIX-MJ13450",
+  'authenticator': 'SNOWFLAKE_JWT',
+  'private_key_file': private_key_file,
+  'private_key_file_pwd':private_key_file_pwd, 
   "user" : "PUBLIC_USER",
-  "password" : "Publicpassword2!",
   "role" : "LAB_6",
   "warehouse" : "COMPUTE_WH",
   "database" : "AIDI_2004_LAB_6",
